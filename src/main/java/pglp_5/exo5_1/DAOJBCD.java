@@ -16,7 +16,7 @@ public  abstract class  DAOJBCD<T> extends DAO<T> {
 	public DAOJBCD() throws SQLException{
 		BDurl ="jdbc:derby:DATA\\ jdbcDB;create=true";
 		try{
-			SetConnect(DriverManager.getConnection(BDurl));
+			SetConn(DriverManager.getConnection(BDurl));
 		}catch (SQLException e){
 		e.printStackTrace();
 	}
@@ -34,6 +34,10 @@ public Object deserialisation(final byte[] bytes) throws ClassNotFoundException,
 	 ObjectInputStream b = new ObjectInputStream(a);
 	 return b.readObject();
 }
-
-
+public Connection getconn(){
+	return conn;
+}
+public void SetConn(final Connection nouveauConn){
+	this.conn= nouveauConn; 
+}
 }
