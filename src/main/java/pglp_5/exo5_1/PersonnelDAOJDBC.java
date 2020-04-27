@@ -1,6 +1,10 @@
 package pglp_5.exo5_1;
 
 import java.sql.Statement;
+import java.time.LocalDate;
+
+import pglp_5.exo5111111.Personnel.Builder;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.DatabaseMetaData;
@@ -117,14 +121,140 @@ public class PersonnelDAOJDBC extends DAOJDBC<Personnel> {
 
 	@Override
 	public Personnel update(Personnel obj) throws IOException, SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
+	        try (Statement stmt =
+	                getconn().createStatement()) {
+	            try (ResultSet resultat = stmt.executeQuery("select *"
+	                    + "from personnel where id="
+	                    + obj.getId())) {
+	                if (!resultat.next()) {
+	                    System.out.println("Cet identifiant pour personnel"
+	                            + " n'a pas encore été utilisé,"
+	                            + "il n'y a donc pas de mise a jour possible.");
+	                    this.create(obj);
+	                } else {
+	                    this.delete(obj);
+	                    this.create(obj);
+	                    System.out.println("La mise à jour du personnel d'id "
+	                            + obj.getId()
+	                            + " dans la table personnel a été effectué!\n");
+	                }
+	                resultat.close();
+	                stmt.close();
+	                return obj;
+	            }
+	        }
+	    }
+	
 	@Override
 	public Personnel find(int id) throws FileNotFoundException, IOException, SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	     Personnel search = null;
+	        DatabaseMetaData DBMD = getconn().getMetaData();
+	        try (Statement existe = getconn().createStatement()) {
+	            ResultSet resulatS = DBMD.getTables(null, null,
+	                    "personnel".toUpperCase(),
+	                    null);
+	            if (resulatS.next()) {
+	                try (Statement stmt =
+	                        getconn().createStatement()) {
+	                    try (ResultSet resultat = stmt.executeQuery("select *"
+	                            + "from personnel"
+	                            + " where id=" + id)) {
+	                        if (!resultat.next()) {
+	                            System.out.println("Il n'y a pas de personnel"
+	                                    + " correspondant a l'id "
+	                                    + id + " dans la table personnel!\n");
+	                            return null;
+	                        }
+	                        String nom = resultat.getString("nom");
+	                        String prenom = resultat.getString("prenom");
+	                        String fonction = resultat.getString("fonction");
+	                        String date = resultat.getString("date de naissance");
+	                        String[] tab = date.split("-");
+	                        LocalDate lDate =
+	                                LocalDate.of(Integer.parseInt(tab[0]),
+	                                        Integer.parseInt(tab[1]),
+	                                        Integer.parseInt(tab[2]));
+	                        Builder b = new Builder(nom,
+	                                prenom, fonction,
+	                                lDate, id);
+	                        search = b.build();
+
+	                        int idNum;
+	                        NumeroTel numeroTel;
+	                        try (ResultSet rs2 = stmt.executeQuery("select *"
+	                                + " from correspondance"
+	                                + " where id_personnel=" + id)) {
+	                            while (rs2.next()) {
+	                                idNum = rs2.getInt("id_numero");
+	                                numeroTel = numTelJDBC.find(idNum);
+	                                if (numeroTel != null) {
+	                                    b.numTelephones(numeroTel);
+	                                }
+	                            }
+
+	                            System.out.println("Le personnel suivant a ete"
+	                                    + " trouve avec l'identifiant " + id + ":");
+	                            System.out.println(search.toString() + "\n");
+
+	                            rs2.close();
+	                            resultat.close();
+	                            stmt.close();
+	                        }
+	                    }
+	                }
+	            } else {
+	                System.out.println("Il n'y a pas encore de personnels!\n");
+	            }
+	        }
+	        return search;
+	    }
+	private void correspondance(final int idPerso, final int idNum)
+            throws SQLException {
+        DatabaseMetaData dbmd = getconn().getMetaData();
+        ResultSet resultat = dbmd.getTables(null, null,
+                "correspondance".toUpperCase(), null);
+
+        try (Statement stmt =
+                getconn().createStatement()) {
+            if (!resultat.next()) {
+                stmt.executeUpdate("Create table correspondance"
+                        + " (id_personnel int NOT NULL,"
+                        + " id_numero int NOT NULL, "
+                        + "primary key (id_personnel, id_numero),"
+                        + "foreign key (id_personnel) references"
+                        + " personnel(id),"
+                        + "foreign key (id_numero) references"
+                        + " numero_telephone(id))");
+            }
+
+            try {
+                stmt.executeUpdate("insert into correspondance values ("
+                        + idPerso + "," + idNum + ")");
+                try (ResultSet rs2 = stmt.executeQuery("SELECT *"
+                        + " FROM correspondance")) {
+                    System.out.println("---Table correspondance:---\n");
+                    System.out.println("id_personnel\t id_numero");
+                    while (rs2.next()) {
+                        System.out.printf("%d\t\t%d%n",
+                                rs2.getInt("id_personnel"),
+                                rs2.getInt("id_numero"));
+                    }
+                    System.out.println("---------------"
+                            + "---------------------\n");
+                    rs2.close();
+                    rs.close();
+                    stmt.close();
+                }
+            }  catch (org.apache.derby.shared.common
+                    .error.DerbySQLIntegrityConstraintViolationException e) {
+                System.out.println("Cet id a deja était utilisé pour "
+                        + "la table correspondance!\n");
+            }
+        }
+    }
+	
+	
 	}
 
-}
+

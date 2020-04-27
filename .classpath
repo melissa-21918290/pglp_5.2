@@ -25,5 +25,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="src" path="/exo4.1"/>
 	<classpathentry kind="src" path="/exo511111111"/>
+	<classpathentry kind="src" path="/dao"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
