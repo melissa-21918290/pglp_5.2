@@ -63,7 +63,7 @@ public class PersonnelDAOJDBC extends DAOJDBC<Personnel> {
             resultat.close();
             for (NumeroTel num : obj.getNumTelephones()) {
                 numTelJDBC.create(num);
-                this.correspondance(obj.getId(), num.getId());
+                this.associe(obj.getId(), num.getId());
             }
 
             System.out.println("L'objet " + obj.toString()
@@ -209,10 +209,10 @@ public class PersonnelDAOJDBC extends DAOJDBC<Personnel> {
 	        }
 	        return search;
 	    }
-	private void correspondance(final int idPerso, final int idNum)
+	private void associe(final int idPerso, final int idNum)
             throws SQLException {
-        DatabaseMetaData dbmd = getconn().getMetaData();
-        ResultSet resultat = dbmd.getTables(null, null,
+        DatabaseMetaData DBMD = getconn().getMetaData();
+        ResultSet resultat = DBMD.getTables(null, null,
                 "correspondance".toUpperCase(), null);
 
         try (Statement stmt =
@@ -231,19 +231,19 @@ public class PersonnelDAOJDBC extends DAOJDBC<Personnel> {
             try {
                 stmt.executeUpdate("insert into correspondance values ("
                         + idPerso + "," + idNum + ")");
-                try (ResultSet rs2 = stmt.executeQuery("SELECT *"
+                try (ResultSet resultat2 = stmt.executeQuery("SELECT *"
                         + " FROM correspondance")) {
                     System.out.println("---Table correspondance:---\n");
                     System.out.println("id_personnel\t id_numero");
-                    while (rs2.next()) {
+                    while (resultat2.next()) {
                         System.out.printf("%d\t\t%d%n",
-                                rs2.getInt("id_personnel"),
-                                rs2.getInt("id_numero"));
+                                resultat2.getInt("id_personnel"),
+                                resultat2.getInt("id_numero"));
                     }
                     System.out.println("---------------"
                             + "---------------------\n");
-                    rs2.close();
-                    rs.close();
+                    resultat2.close();
+                    resultat.close();
                     stmt.close();
                 }
             }  catch (org.apache.derby.shared.common
@@ -254,6 +254,66 @@ public class PersonnelDAOJDBC extends DAOJDBC<Personnel> {
         }
     }
 	
+	public void afficheTabPersonnel() throws SQLException {
+        DatabaseMetaData DBMD= getconn().getMetaData();
+        try (Statement exist = getconn().createStatement()) {
+            ResultSet rsEx = DBMD.getTables(null, null,
+                    "correspondance".toUpperCase(),
+                    null);
+            if (rsEx.next()) {
+                try (Statement stmt = getconn().createStatement()) {
+                    try (ResultSet rs = stmt.executeQuery("SELECT *"
+                            + " FROM personnel")) {
+                        System.out.println("---Table personnel:---\n");
+                        System.out.println("id\t nom\t prenom\t fonction\t"
+                                + " naissance\t");
+                        while (rs.next()) {
+                            System.out.printf("%d\t%s \t%s\t %s\t %s%n",
+                                    rs.getInt("id"),
+                                    rs.getString("nom"),
+                                    rs.getString("prenom"),
+                                    rs.getString("fonction"),
+                                    rs.getString("date_de_naissance"));
+                        }
+                        System.out.println("-----------------------"
+                                + "-------------\n");
+
+                        rs.close();
+                    }
+                }
+            } else {
+                System.out.println("Il n'y a pas encore de personnels!\n");
+            }
+        }
+    }
+	
+	public void affichageTabassocie() throws SQLException {
+        DatabaseMetaData DBMD = getconn().getMetaData();
+        try (Statement exist = getconn().createStatement()) {
+            ResultSet rsEx = DBMD.getTables(null, null,
+                    "correspondance".toUpperCase(),
+                    null);
+            if (rsEx.next()) {
+                try (Statement stmt = getconn().createStatement()) {
+                    try (ResultSet resultat = stmt.executeQuery("SELECT *"
+                            + " FROM correspondance")) {
+                        System.out.println("---Table correspondance:---\n");
+                        System.out.println("id_personnel\t id_numero\t");
+                        while (resultat.next()) {
+                            System.out.printf("%d\t\t%d\t%n",
+                                    resultat.getInt("id_personnel"),
+                                    resultat.getInt("id_numero"));
+                        }
+                        System.out.println("-----------------------"
+                                + "-------------\n");
+                        resultat.close();
+                    }
+                }
+            } else {
+                System.out.println("Il n'y a pas de correspondance!\n");
+            }
+        }
+    }
 	
 	}
 
