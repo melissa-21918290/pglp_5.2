@@ -14,18 +14,34 @@ public class NumeroTel implements Serializable {
 		private static final long serialVersionUID = 1L;
 		private  String descriptif;
 		private  String numero;
+		private int id;
 		
-		public NumeroTel( String descriptif, String numero) {
+		public NumeroTel( String descriptif, String numero, int id2) {
 			this.descriptif=descriptif;
 			this.numero=numero;
+			this.setId(id2);
+		}
+		
+		public int getId(){
+			return id;}
+		
+
+		private void setId(int id2) {
+			this.id =id2;
 		}
 
 		public String getDescriptif() {
 			return descriptif;
 		}
+		public void setDescriptif(final String descri){
+			this.descriptif= descri;
+		}
 			//recuperer le numero de telephone
 		public String getNumero() {
 			return numero;
+		}
+		public void setNumero(){
+			this.numero =numero;
 		}
 		//recuperer le descriptif et le numero
 		public String toString(){

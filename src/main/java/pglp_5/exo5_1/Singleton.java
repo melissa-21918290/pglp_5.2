@@ -1,5 +1,7 @@
 package pglp_5.exo5_1;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 
@@ -10,8 +12,10 @@ import pglp_5.exo5_1.Personnel.Builder;
 public enum Singleton {
 	ENVIRONNEMENT;
 	
-	public void run(String[] args) {
-		NumeroTel portable = new NumeroTel("portable","0651624519");
+	public void run(String[] args)  throws IOException, SQLException, ClassNotFoundException{ {
+		 
+		
+		/*NumeroTel portable = new NumeroTel("portable","0651624519");
 		Builder b = new Builder("bafdel","melissa", "secrétaire", LocalDate.of(1995,4,1));
 		b.numTelephones(portable);
 		Personnel secretaire = b.build();
@@ -65,11 +69,25 @@ public enum Singleton {
 		Departement.add(chefEquipe);
 		Departement.add(Service);
 		
-		Departement.print();
+		Departement.print();*/
 		
+			
+			 NumeroTel portable =
+		                new NumeroTel("portable", "0751624519", 1);
+		        Builder b = new Builder("SMITH", "John", "secrétaire",
+		                LocalDate.of(1964, 8, 25), 1);
+		        b.numTelephones(portable);
+		        Personnel secretaire = b.build();
+		        NumeroTel portable2 =
+		                new NumeroTel("portable", "0651424519", 2);
+		        Builder b2 = new Builder("WHITE", "Jim", "chef de service",
+		                LocalDate.of(1964, 8, 25), 2);
+		        b2.numTelephones(portable2);
+		        Personnel chefDeService = b2.build();
+	}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, IOException, SQLException {
 		ENVIRONNEMENT.run(args);
 	}
 }

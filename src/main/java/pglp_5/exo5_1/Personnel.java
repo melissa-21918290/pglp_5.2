@@ -24,7 +24,7 @@ public class Personnel implements Hierarchie, Serializable{
 		private final LocalDate dateNaissance;
 		private final ArrayList<NumeroTel> numTelephones;
 		
-		public Builder(String nom, String prenom, String fonction, LocalDate dateNaissance) {
+		public Builder(String nom, String prenom, String fonction, LocalDate dateNaissance, int id) {
 			this.nom = nom;
 			this.prenom = prenom;
 			this.fonction = fonction;
@@ -121,5 +121,10 @@ public class Personnel implements Hierarchie, Serializable{
             return false;
         return true;
     }
+
+	public Object getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

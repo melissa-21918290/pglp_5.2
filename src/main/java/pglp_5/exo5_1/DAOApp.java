@@ -21,6 +21,8 @@ public abstract class DAOApp<T> {
     	objOut = new ObjectOutputStream(fileOut);
     }
     
+  
+    
     //creation
     public abstract T create (T obj) throws IOException;
     

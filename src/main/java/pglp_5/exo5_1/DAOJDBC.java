@@ -8,12 +8,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public  abstract class  DAOJBCD<T> extends DAO<T> {
+public  abstract class  DAOJDBC<T> extends DAO<T> {
 	private String BDurl;
 	private Connection conn;
 
 	
-	public DAOJBCD() throws SQLException{
+	public DAOJDBC() throws SQLException{
 		BDurl ="jdbc:derby:DATA\\ jdbcDB;create=true";
 		try{
 			SetConn(DriverManager.getConnection(BDurl));
