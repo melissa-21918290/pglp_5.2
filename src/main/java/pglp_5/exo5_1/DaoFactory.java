@@ -1,22 +1,31 @@
 package pglp_5.exo5_1;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
-public class DaoFactory {
+public final class DAOFactory extends AbstractDAOFactory {
+	public DAOFactory(){
 	
-	//recuperer le numero de telephone
-	public static DAOApp<NumeroTel> getNumeroTelDAO() throws IOException {
-		return getNumeroTelDAO();
-		}
-		
-		//recuperer de DAO personnel
-		public static DAOApp<Personnel> getPersonnelDAO(){ 
-			return  getPersonnelDAO();
-		}
+	}
+
+
+	public DAO<NumeroTel> getNumeroTelDAO() throws IOException {
+		// TODO Auto-generated method stub
+		return new NumeroTelDAO();
+	}
+
+	@Override
+	public DAO<Personnel> getPersonnelDAO() throws IOException, SQLException {
+		// TODO Auto-generated method stub
+		return new PersonnelDAO();
+	}
+
+	@Override
+	public DAO<GroupePersonnel> getGroupePersonnelDAO() throws IOException, SQLException {
+		// TODO Auto-generated method stub
+		return new GroupePersonnelDAO();
+	}
 	
-	//recuperer le DAO de GroupePersonnel
-		 public static DAOApp<GroupePersonnel> getGroupePersonnels() {
-		        return getGroupePersonnels();
-		        
-		    }
+	
+	
 }

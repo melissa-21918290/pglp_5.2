@@ -36,7 +36,7 @@ public class NumeroTelTest {
 		String nomF = "NumeroTel";
 		File fichier = new File(nomF);
 		
-		DAOApp<NumeroTel> numTel = DaoFactory.getNumeroTelDAO();
+		DAOApp<NumeroTel> numTel = DAOFactory.getNumeroTelDAO();
 		numTel.create(numero);
 		File search = new File(nomF +".txt");
 		Object deserialisable =null;
