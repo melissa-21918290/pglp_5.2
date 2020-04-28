@@ -12,6 +12,7 @@ public final class DAOFactory extends AbstractDAOFactory {
 	public DAO<NumeroTel> getNumeroTelDAO() throws IOException {
 		// TODO Auto-generated method stub
 		return new NumeroTelDAO();
+		
 	}
 
 	@Override

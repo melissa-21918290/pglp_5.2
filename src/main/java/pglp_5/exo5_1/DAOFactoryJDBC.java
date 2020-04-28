@@ -9,14 +9,16 @@ public final class DAOFactoryJDBC extends AbstractDAOFactory {
 		
 	}
 
-	public DAOJDBC<NumeroTel> getNumeroTelDAO() {
-		// TODO Auto-generated method stub
-		return null;
+	public DAOJDBC<NumeroTel> getNumeroTelDAO()throws IOException, SQLException  {
+		return new NumeroTelDOAJDBC();
+	}
+	
+	public DAOJDBC<Personnel>getPersonnelDAO() throws IOException, SQLException{
+		return new PersonnelDAOJDBC();
 	}
 
-	public DAOJDBC<NumeroTel> getNumeroTelDAO1() {
-		// TODO Auto-generated method stub
-		return null;
+	public DAOJDBC<GroupePersonnel> getGroupePersonnelDAO() throws IOException, SQLException {
+		return new GroupePersonnelJDBC();
 	}
 
 	

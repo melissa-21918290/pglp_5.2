@@ -16,11 +16,26 @@ public class GroupePersonnel implements Hierarchie, Serializable {
 	
 	//creer un groupe personnels
 	private String nomDuGroupe;
-	public GroupePersonnel( String nom){
+	private int id;
+	public GroupePersonnel( String nom, final int id2){
 		this.nomDuGroupe = nom;
+		this.setId(id2);
 	}
 	
+	public int getID(){
+		return id;
+	}
 	
+	private void setId(int id2) {
+	this.id=id2;
+		
+	}
+	public String getNomGroupe(){
+		return this.getNomGroupe();
+	}
+	
+
+
 	//recuperer le nom du groupe
 	
 	 public String getName(){
@@ -48,12 +63,12 @@ public class GroupePersonnel implements Hierarchie, Serializable {
 		
 	}
 	//ajout de composant au groupe
-	public void add(Hierarchie composant) {
+	public void add(final Hierarchie composant) {
 		personne.add(composant);
 	}
 	
 	//retirer un composanr du groupe
-	public void remove(Hierarchie composant) {
+	public void remove(final Hierarchie composant) {
 		personne.remove(composant);
 	}
 	

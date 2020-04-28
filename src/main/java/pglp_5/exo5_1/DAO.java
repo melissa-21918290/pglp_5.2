@@ -14,7 +14,7 @@ public abstract class DAO<T> {
 	
 	public abstract T update(T obj) throws IOException, SQLException; 
 	
-	public abstract T find(int id) throws FileNotFoundException, IOException, SQLException; 
+	public abstract T find(int id) throws FileNotFoundException, IOException, SQLException, ClassNotFoundException; 
 
 	public Object deserialisable(final byte[] bytes) throws ClassNotFoundException, IOException {
 		ByteArrayInputStream a = new ByteArrayInputStream(bytes);
