@@ -2,7 +2,11 @@ package pglp_5.exo5_1;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
+/**
+ * 
+ * @author Melissa
+ *
+ */
 
 public abstract class AbstractDAOFactory {
    

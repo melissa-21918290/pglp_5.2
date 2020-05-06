@@ -5,7 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.sql.SQLException;
-
+/**
+ * 
+ * @author Melissa
+ *
+ * @param <T>
+ */
 public abstract class DAO<T> {
    
     public abstract T create(T obj) throws IOException, SQLException;
