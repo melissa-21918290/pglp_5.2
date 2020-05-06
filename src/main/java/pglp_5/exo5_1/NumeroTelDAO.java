@@ -1,53 +1,100 @@
 package pglp_5.exo5_1;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.nio.file.Files;
-import java.util.Scanner;
 
 
+public class NumeroTelDAO extends DAO<NumeroTel> {
+   
+    @Override
+    public NumeroTel create(final NumeroTel obj)
+            throws IOException {
+        String nomDir = "NumeroTels";
+        File dir = new File(nomDir);
+        FileOutputStream fileOut;
+        ObjectOutputStream objOut;
 
-public class NumeroTelDAO extends DAOApp<NumeroTel> {
-
-	public NumeroTelDAO(int id) throws IOException {
-		super(id);
-		// TODO Auto-generated constructor stub
-	}
-
-	
-	@Override
-	public NumeroTel create(NumeroTel obj) throws IOException {
-		// TODO Auto-generated method stub
-		objOut.writeObject(obj);
-		return obj;
-	}
-
-	@Override
-	public void delete(NumeroTel obj) {
-		// TODO Auto-generated method stub
-		f.delete();
-
-	}
-
-	@Override
-	public NumeroTel update(NumeroTel obj) throws IOException {
-		// TODO Auto-generated method stub
-		f.delete();
-		this.create(obj);
-		return obj;
-	}
-
-	@Override
-	public NumeroTel find(String string) throws FileNotFoundException, ClassNotFoundException, IOException {
-		File search = new File( ".txt");
-        Object deserialized = null;
-        if (search.exists()) {
-            byte[] fileContent = Files.readAllBytes(search.toPath());
-            deserialized = deserialize(fileContent);
+        File file = new File(nomDir + "\\" + obj.getId() + ".txt");
+        if (!dir.exists()) {
+            if (dir.mkdir()) {
+                System.out.println("Le dossier est créé!");
+            } else {
+                System.out.println("le dossier n'a pas pu être créé!");
+            }
         }
-        NumeroTel numero = (NumeroTel) deserialized;
-        System.out.println(numero.toString());
-        return numero;
-
-}}
+        fileOut = new FileOutputStream(file);
+        objOut = new ObjectOutputStream(fileOut);
+        objOut.writeObject(obj);
+        objOut.close();
+        System.out.println("Le fichier est créé!");
+        return obj;
+    }
+    
+    public void delete(final NumeroTel obj) {
+        String nomDir = "NumeroTels";
+        File dir = new File(nomDir);
+        if (dir.exists()) {
+            File file = new File(nomDir + "\\" + obj.getId() + ".txt");
+            if (file.exists()) {
+                boolean test = file.delete();
+                if (test) {
+                    System.out.println("Le fichier est supprimé!");
+                } else {
+                    System.out.println("Echec de la suppression du fichier!");
+                }
+            } else {
+                System.out.println("Le fichier à supprimer n'existe pas!");
+            }
+        } else {
+            System.out.println("Le dossier contenant le fichier n'existe pas!");
+        }
+    }
+   
+    public NumeroTel update(final NumeroTel obj)
+            throws IOException {
+        String nomDir = "NumeroTels";
+        File dir = new File(nomDir);
+        if (dir.exists()) {
+            File file = new File(nomDir + "\\" + obj.getId() + ".txt");
+            if (file.exists()) {
+                boolean test = file.delete();
+                if (test) {
+                    this.delete(obj);
+                    this.create(obj);
+                } else {
+                    System.out.println("Echec de la mise a jour du fichier!\n");
+                }
+            } else {
+                System.out.println("Le fichier à mettre à jour n'existe pas!");
+            }
+        } else {
+            System.out.println("Le dossier contenant le fichier n'existe pas!");
+        }
+        return obj;
+    }
+    
+    public NumeroTel find(final int id)
+            throws IOException, ClassNotFoundException {
+        String nomDir = "NumeroTels";
+        File dir = new File(nomDir);
+        File search = new File(nomDir + "\\" + id + ".txt");
+        Object deserialized = null;
+        if (dir.exists()) {
+            if (search.exists()) {
+                byte[] fileContent = Files.readAllBytes(search.toPath());
+                deserialized = deserialize(fileContent);
+                NumeroTel num = (NumeroTel) deserialized;
+                System.out.println(num.toString());
+                return num;
+            } else {
+                System.out.println("Le fichier n'existe pas!");
+            }
+        } else {
+            System.out.println("Le dossier n'existe pas!");
+        }
+        return null;
+    }
+}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.1.8" sequence="0" timestamp="1588781864812" analysisTimestamp="1588782225564" release="">
+  <Project projectName="exo5_1">
+    <Jar>D:\cloud sim\eclipsee\exo 5.2\target\classes</Jar>
+    <AuxClasspathEntry>C:\Users\Melissa\.m2\repository\org\apache\derby\derby\10.14.2.0\derby-10.14.2.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Melissa\.m2\repository\org\springframework\spring-jdbc\5.2.5.RELEASE\spring-jdbc-5.2.5.RELEASE.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Melissa\.m2\repository\org\springframework\spring-beans\5.2.5.RELEASE\spring-beans-5.2.5.RELEASE.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Melissa\.m2\repository\org\springframework\spring-core\5.2.5.RELEASE\spring-core-5.2.5.RELEASE.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Melissa\.m2\repository\org\springframework\spring-jcl\5.2.5.RELEASE\spring-jcl-5.2.5.RELEASE.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Melissa\.m2\repository\org\springframework\spring-tx\5.2.5.RELEASE\spring-tx-5.2.5.RELEASE.jar</AuxClasspathEntry>
+  </Project>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Wed, 6 May 2020 18:17:44 +0200" total_classes="18" referenced_classes="63" total_bugs="0" total_size="1238" num_packages="1" java_version="1.8.0_25" vm_version="25.25-b02" cpu_seconds="26.04" clock_seconds="7.83" peak_mbytes="202.07" alloc_mbytes="455.50" gc_seconds="0.29">
+    <FileStats path="pglp_5/exo5_1/AbstractDAOFactory.java" bugCount="0" size="22"/>
+    <FileStats path="pglp_5/exo5_1/App.java" bugCount="0" size="52"/>
+    <FileStats path="pglp_5/exo5_1/Composite.java" bugCount="0" size="2"/>
+    <FileStats path="pglp_5/exo5_1/DAO.java" bugCount="0" size="11"/>
+    <FileStats path="pglp_5/exo5_1/DAOFactory.java" bugCount="0" size="10"/>
+    <FileStats path="pglp_5/exo5_1/DAOFactoryJDBC.java" bugCount="0" size="14"/>
+    <FileStats path="pglp_5/exo5_1/DAOJDBC.java" bugCount="0" size="23"/>
+    <FileStats path="pglp_5/exo5_1/GroupePersonnel.java" bugCount="0" size="73"/>
+    <FileStats path="pglp_5/exo5_1/GroupePersonnelDAO.java" bugCount="0" size="72"/>
+    <FileStats path="pglp_5/exo5_1/GroupePersonnelDAOJDBC.java" bugCount="0" size="271"/>
+    <FileStats path="pglp_5/exo5_1/NumeroTel.java" bugCount="0" size="56"/>
+    <FileStats path="pglp_5/exo5_1/NumeroTelDAO.java" bugCount="0" size="72"/>
+    <FileStats path="pglp_5/exo5_1/NumeroTelDAOJDBC.java" bugCount="0" size="131"/>
+    <FileStats path="pglp_5/exo5_1/Personnel.java" bugCount="0" size="132"/>
+    <FileStats path="pglp_5/exo5_1/PersonnelDAO.java" bugCount="0" size="72"/>
+    <FileStats path="pglp_5/exo5_1/PersonnelDAOJDBC.java" bugCount="0" size="225"/>
+    <PackageStats package="pglp_5.exo5_1" total_bugs="0" total_types="18" total_size="1238">
+      <ClassStats class="pglp_5.exo5_1.AbstractDAOFactory" sourceFile="AbstractDAOFactory.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.AbstractDAOFactory$DAOType" sourceFile="AbstractDAOFactory.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.App" sourceFile="App.java" interface="false" size="52" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.Composite" sourceFile="Composite.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.DAO" sourceFile="DAO.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.DAOFactory" sourceFile="DAOFactory.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.DAOFactoryJDBC" sourceFile="DAOFactoryJDBC.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.DAOJDBC" sourceFile="DAOJDBC.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.GroupePersonnel" sourceFile="GroupePersonnel.java" interface="false" size="73" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.GroupePersonnelDAO" sourceFile="GroupePersonnelDAO.java" interface="false" size="72" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.GroupePersonnelDAOJDBC" sourceFile="GroupePersonnelDAOJDBC.java" interface="false" size="271" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.NumeroTel" sourceFile="NumeroTel.java" interface="false" size="56" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.NumeroTelDAO" sourceFile="NumeroTelDAO.java" interface="false" size="72" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.NumeroTelDAOJDBC" sourceFile="NumeroTelDAOJDBC.java" interface="false" size="131" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.Personnel" sourceFile="Personnel.java" interface="false" size="99" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.Personnel$Builder" sourceFile="Personnel.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.PersonnelDAO" sourceFile="PersonnelDAO.java" interface="false" size="72" bugs="0"/>
+      <ClassStats class="pglp_5.exo5_1.PersonnelDAOJDBC" sourceFile="PersonnelDAOJDBC.java" interface="false" size="225" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="725" invocations="621" avgMicrosecondsPerInvocation="1167" maxMicrosecondsPerInvocation="32043" standardDeviationMicrosecondsPerInvocation="2798"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="659" invocations="617" avgMicrosecondsPerInvocation="1069" maxMicrosecondsPerInvocation="62923" standardDeviationMicrosecondsPerInvocation="3649"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.StreamResourceTracker" totalMilliseconds="373" invocations="175" avgMicrosecondsPerInvocation="2131" maxMicrosecondsPerInvocation="127664" standardDeviationMicrosecondsPerInvocation="9609"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="347" invocations="146" avgMicrosecondsPerInvocation="2377" maxMicrosecondsPerInvocation="76146" standardDeviationMicrosecondsPerInvocation="7115"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="277" invocations="149" avgMicrosecondsPerInvocation="1865" maxMicrosecondsPerInvocation="43078" standardDeviationMicrosecondsPerInvocation="4647"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="274" invocations="139" avgMicrosecondsPerInvocation="1977" maxMicrosecondsPerInvocation="33274" standardDeviationMicrosecondsPerInvocation="4252"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="243" invocations="130" avgMicrosecondsPerInvocation="1870" maxMicrosecondsPerInvocation="54630" standardDeviationMicrosecondsPerInvocation="5376"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="214" invocations="63" avgMicrosecondsPerInvocation="3405" maxMicrosecondsPerInvocation="35367" standardDeviationMicrosecondsPerInvocation="6352"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="210" invocations="112" avgMicrosecondsPerInvocation="1883" maxMicrosecondsPerInvocation="20383" standardDeviationMicrosecondsPerInvocation="2900"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="204" invocations="575" avgMicrosecondsPerInvocation="356" maxMicrosecondsPerInvocation="87929" standardDeviationMicrosecondsPerInvocation="3678"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="184" invocations="63" avgMicrosecondsPerInvocation="2934" maxMicrosecondsPerInvocation="19443" standardDeviationMicrosecondsPerInvocation="4554"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="168" invocations="287" avgMicrosecondsPerInvocation="587" maxMicrosecondsPerInvocation="10838" standardDeviationMicrosecondsPerInvocation="1276"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="159" invocations="139" avgMicrosecondsPerInvocation="1147" maxMicrosecondsPerInvocation="20673" standardDeviationMicrosecondsPerInvocation="2161"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="148" invocations="18" avgMicrosecondsPerInvocation="8237" maxMicrosecondsPerInvocation="61132" standardDeviationMicrosecondsPerInvocation="15378"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="125" invocations="112" avgMicrosecondsPerInvocation="1118" maxMicrosecondsPerInvocation="10363" standardDeviationMicrosecondsPerInvocation="1807"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="119" invocations="63" avgMicrosecondsPerInvocation="1900" maxMicrosecondsPerInvocation="38839" standardDeviationMicrosecondsPerInvocation="5727"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="111" invocations="151" avgMicrosecondsPerInvocation="738" maxMicrosecondsPerInvocation="75650" standardDeviationMicrosecondsPerInvocation="6125"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="106" invocations="110" avgMicrosecondsPerInvocation="964" maxMicrosecondsPerInvocation="43450" standardDeviationMicrosecondsPerInvocation="4378"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.obl.ObligationAnalysis" totalMilliseconds="105" invocations="69" avgMicrosecondsPerInvocation="1531" maxMicrosecondsPerInvocation="13403" standardDeviationMicrosecondsPerInvocation="2411"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindSelfComparison" totalMilliseconds="75" invocations="18" avgMicrosecondsPerInvocation="4175" maxMicrosecondsPerInvocation="56968" standardDeviationMicrosecondsPerInvocation="12890"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="72" invocations="63" avgMicrosecondsPerInvocation="1147" maxMicrosecondsPerInvocation="57422" standardDeviationMicrosecondsPerInvocation="7194"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="63" invocations="63" avgMicrosecondsPerInvocation="1006" maxMicrosecondsPerInvocation="12466" standardDeviationMicrosecondsPerInvocation="2035"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>
