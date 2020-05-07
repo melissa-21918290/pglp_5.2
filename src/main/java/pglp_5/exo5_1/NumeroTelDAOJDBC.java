@@ -41,13 +41,13 @@ public class NumeroTelDAOJDBC extends DAOJDBC<NumeroTel> {
 
                 rs = creation.executeQuery("SELECT * FROM numero_telephone");
 
-                System.out.println("---Table numero_telephone:---\n");
+                System.out.println("***Table numero_telephone:***\n");
                 System.out.println("id\t descriptif\t numero");
                 while (rs.next()) {
                     System.out.printf("%d\t%s\t%s%n", rs.getInt("id"),
                             rs.getString("descriptif"), rs.getString("numero"));
                 }
-                System.out.println("------------------------------------\n");
+                System.out.println("************************\n");
                 System.out.println("L'objet " + obj.toString()
                 + " a bien été enregistré!\n");
                 rs.close();
@@ -161,7 +161,7 @@ public class NumeroTelDAOJDBC extends DAOJDBC<NumeroTel> {
                 try (Statement stmt = getConnect().createStatement()) {
                     try (ResultSet rs = stmt.executeQuery("SELECT *"
                             + " FROM numero_telephone")) {
-                        System.out.println("---Table numero_telephone:---\n");
+                        System.out.println("***Table numero_telephone:***\n");
                         System.out.println("id\t descriptif\t numero\t");
                         while (rs.next()) {
                             System.out.printf("%d\t%s \t%s %n",
@@ -169,8 +169,8 @@ public class NumeroTelDAOJDBC extends DAOJDBC<NumeroTel> {
                                     rs.getString("descriptif"),
                                     rs.getString("numero"));
                         }
-                        System.out.println("-----------------------"
-                                + "-------------\n");
+                        System.out.println("***************"
+                                + "**********\n");
                         rs.close();
                     }
                 }

@@ -27,7 +27,7 @@ import pglp_5.exo5_1.Personnel.Builder;
 	        b.numTelephones(portable);
 	        Personnel secretaire = b.build();
 	       NumeroTel portable2 =
-	                new NumeroTel("mobile", "0688741020", 4);
+	                new NumeroTel("fixe", "021241020", 4);
 	        Builder b2 = new Builder("eliot", "alderson", "chef de service",
 	                LocalDate.of(1990, 3, 11), 4);
 	        b2.numTelephones(portable2);

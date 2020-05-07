@@ -39,13 +39,13 @@ public class GroupePersonnelDAOJDBC extends DAOJDBC<GroupePersonnel> {
                 update.close();
                 rs = creation.executeQuery("SELECT * FROM groupe_personnels");
 
-                System.out.println("---Table groupe_personnels:---\n");
+                System.out.println("***Table groupe_personnels:***\n");
                 System.out.println("id\t nom_groupe\t");
                 while (rs.next()) {
                     System.out.printf("%d\t%s%n", rs.getInt("id"),
                             rs.getString("nom_groupe"));
                 }
-                System.out.println("------------------------------------\n");
+                System.out.println("************************\n");
 
                 rs.close();
                 Personnel p;
@@ -260,8 +260,8 @@ public class GroupePersonnelDAOJDBC extends DAOJDBC<GroupePersonnel> {
                                 rs1.getInt("id_groupe"),
                                 rs1.getInt("id_personnel"));
                     }
-                    System.out.println("--------------------"
-                            + "----------------\n");
+                    System.out.println("****************"
+                            + "***************\n");
                     rs1.close();
                     rs.close();
                     stmt.close();
@@ -300,15 +300,15 @@ public class GroupePersonnelDAOJDBC extends DAOJDBC<GroupePersonnel> {
                         + idGroupe + "," + idSousGr + ")");
                 try (ResultSet rs1 = stmt.executeQuery("SELECT * FROM"
                         + " appartenance_sous_groupe")) {
-                    System.out.println("---Table"
-                            + " appartenance_sous_groupe:---\n");
+                    System.out.println("***Table"
+                            + " appartenance_sous_groupe:***\n");
                     System.out.println("id_groupe\t id_sousGroupe");
                     while (rs1.next()) {
                         System.out.printf("%d\t\t%d%n", rs1.getInt("id_groupe"),
                                 rs1.getInt("id_sousGroupe"));
                     }
-                    System.out.println("---------------------------"
-                            + "---------\n");
+                    System.out.println("*****************"
+                            + "*********\n");
                     rs1.close();
                     rs.close();
                     stmt.close();
@@ -331,14 +331,14 @@ public class GroupePersonnelDAOJDBC extends DAOJDBC<GroupePersonnel> {
                 try (Statement stmt = getConnect().createStatement()) {
                     try (ResultSet rs = stmt.executeQuery("SELECT *"
                             + " FROM groupe_personnels")) {
-                        System.out.println("---Table groupe_personnels:---\n");
+                        System.out.println("***Table groupe_personnels:***\n");
                         System.out.println("id\t nom_groupe\t");
                         while (rs.next()) {
                             System.out.printf("%d\t%s%n", rs.getInt("id"),
                                     rs.getString("nom_groupe"));
                         }
-                        System.out.println("-----------------------"
-                                + "-------------\n");
+                        System.out.println("****************"
+                                + "*********\n");
 
                         rs.close();
                     }
@@ -361,16 +361,16 @@ public class GroupePersonnelDAOJDBC extends DAOJDBC<GroupePersonnel> {
                 try (Statement stmt = getConnect().createStatement()) {
                     try (ResultSet rs = stmt.executeQuery("SELECT *"
                             + " FROM appartenance_personnel")) {
-                        System.out.println("---Table appartenance"
-                                + "_personnels:---\n");
+                        System.out.println("***Table appartenance"
+                                + "_personnels:***\n");
                         System.out.println("id_groupe\t id_personnel\t");
                         while (rs.next()) {
                             System.out.printf("%d\t\t%d%n",
                                     rs.getInt("id_groupe"),
                                     rs.getInt("id_personnel"));
                         }
-                        System.out.println("-----------------------"
-                                + "-------------\n");
+                        System.out.println("**************"
+                                + "**********\n");
                         rs.close();
                     }
                 }
@@ -392,16 +392,16 @@ public class GroupePersonnelDAOJDBC extends DAOJDBC<GroupePersonnel> {
                 try (Statement stmt = getConnect().createStatement()) {
                     try (ResultSet rs = stmt.executeQuery("SELECT *"
                             + " FROM appartenance_sous_groupe")) {
-                        System.out.println("---Table appartenance_"
-                                + "sous_groupe:---\n");
+                        System.out.println("***Table appartenance_"
+                                + "sous_groupe:***\n");
                         System.out.println("id_groupe\t id_sousGroupe\t");
                         while (rs.next()) {
                             System.out.printf("%d\t\t%d%n",
                                     rs.getInt("id_groupe"),
                                     rs.getInt("id_sousGroupe"));
                         }
-                        System.out.println("-----------------------"
-                                + "-------------\n");
+                        System.out.println("****************"
+                                + "*************\n");
 
                         rs.close();
                     }

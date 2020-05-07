@@ -55,7 +55,7 @@ public class PersonnelDAOJDBC extends DAOJDBC<Personnel> {
 
                 rs = creation.executeQuery("SELECT * FROM personnel");
 
-                System.out.println("---Table Personnel:---\n");
+                System.out.println(" \n \n ***Table Personnel:***\n");
                 System.out.println("id\t nom\t prenom\t fonction\t"
                         + " date_de_naissance");
                 while (rs.next()) {
@@ -64,8 +64,8 @@ public class PersonnelDAOJDBC extends DAOJDBC<Personnel> {
                             rs.getString("fonction"),
                             rs.getString("date_de_naissance"));
                 }
-                System.out.println("---------------------"
-                        + "---------------\n");
+                System.out.println("****************"
+                        + "************\n");
 
                 rs.close();
                 for (NumeroTel num : obj.getNumTelephones()) {
@@ -245,8 +245,8 @@ public class PersonnelDAOJDBC extends DAOJDBC<Personnel> {
                                 rs2.getInt("id_personnel"),
                                 rs2.getInt("id_numero"));
                     }
-                    System.out.println("---------------"
-                            + "---------------------\n");
+                    System.out.println("**************"
+                            + "****************\n");
                     rs2.close();
                     rs.close();
                     stmt.close();
@@ -281,8 +281,8 @@ public class PersonnelDAOJDBC extends DAOJDBC<Personnel> {
                                     rs.getString("fonction"),
                                     rs.getString("date_de_naissance"));
                         }
-                        System.out.println("-----------------------"
-                                + "-------------\n");
+                        System.out.println("****************"
+                                + "***********\n");
 
                         rs.close();
                     }
@@ -311,8 +311,8 @@ public class PersonnelDAOJDBC extends DAOJDBC<Personnel> {
                                     rs.getInt("id_personnel"),
                                     rs.getInt("id_numero"));
                         }
-                        System.out.println("-----------------------"
-                                + "-------------\n");
+                        System.out.println("**************"
+                                + "***********\n");
                         rs.close();
                     }
                 }
